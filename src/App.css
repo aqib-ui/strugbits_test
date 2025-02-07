@@ -1,32 +1,11 @@
-/* .tab-menu {
-  display: flex;
-  gap: 20px;
-}
-
-.tab-menu .active {
-  font-weight: bold;
-  color: blue;
-}
-
-.meal-card.selected {
-  border: 2px solid green;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-} */
-
 .meal-card {
   border: 1px solid #ddd;
-  /* padding: 10px; */
   text-align: center;
 }
 
 .modal {
   position: fixed;
   background: white;
-  /* padding: 20px; */
   border: 1px solid #ccc;
 }
 
@@ -76,7 +55,6 @@ body {
   text-transform: capitalize !important;
 }
 
-/* Style for the container of WeekTabs and Add Button */
 .d-flex {
   display: flex;
   justify-content: center;
@@ -96,7 +74,6 @@ body {
   .add-to-week-btn button {
     width: 100%;
     max-width: 300px;
-    /* Keep button at a reasonable size */
   }
 
   .d-flex {
@@ -110,7 +87,6 @@ body {
 }
 
 .add-to-week-btn {
-  /* Space above the button */
   text-align: center;
   position: relative;
   top: -10px;
@@ -118,7 +94,6 @@ body {
 
 .add-to-week-btn button {
   background-color: #175d7f;
-  /* Custom button color */
   color: white;
   font-weight: bold;
   padding: 10px 40px;
@@ -131,7 +106,6 @@ body {
 
 .add-to-week-btn button:hover {
   background-color: #134a5a;
-  /* Darker color when hovering */
 }
 
 
@@ -144,27 +118,21 @@ body {
 .meal-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 cards per row */
   gap: 16px;
-  /* Space between cards */
   padding: 20px;
   justify-items: center;
 }
 
 @media (max-width: 992px) {
 
-  /* Tablets and small desktops */
   .meal-list {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 cards per row */
   }
 }
 
 @media (max-width: 600px) {
 
-  /* Mobile screens */
   .meal-list {
     grid-template-columns: 1fr;
-    /* 1 card per row */
   }
 }

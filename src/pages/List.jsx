@@ -8,7 +8,7 @@ const Lists = () => {
 
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem("mealPlan")) || {};
-        setMeals(storedData[weekKey] || []); // Ensure it's always an array
+        setMeals(storedData[weekKey] || []);
     }, [weekKey]);
 
     const removeMeal = (mealId) => {

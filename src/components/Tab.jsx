@@ -9,7 +9,6 @@ const WeekTabs = ({ activeWeek, onSelectWeek }) => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        // Update active week when tab is selected
         const selectedWeek = newValue === 0 ? "all" : `week${newValue}`;
         onSelectWeek(selectedWeek);
     };
@@ -24,13 +23,13 @@ const WeekTabs = ({ activeWeek, onSelectWeek }) => {
                 aria-label="week tabs"
                 sx={{
                     marginBottom: '20px',
-                    flexWrap: 'nowrap', // Prevent wrapping of the tabs
-                    overflowX: 'auto', // Ensure horizontal scroll
+                    flexWrap: 'nowrap',
+                    overflowX: 'auto',
                     '& .MuiTabs-scroller': {
-                        overflowX: 'auto', // Force scroll on the scroller
+                        overflowX: 'auto',
                     },
                     '& .MuiTab-root': {
-                        minWidth: 120, // Make sure each tab has a minimum width
+                        minWidth: 120,
                     },
                 }}
             >

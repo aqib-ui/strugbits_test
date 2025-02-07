@@ -18,7 +18,6 @@ const Meals = () => {
             .then((res) => setMeals(res.data.recipes))
             .catch((err) => console.error(err));
 
-        // Load stored weeks from localStorage
         const storedWeeks = JSON.parse(localStorage.getItem("weeks"));
         if (storedWeeks) setWeeks(storedWeeks);
     }, []);
@@ -26,8 +25,8 @@ const Meals = () => {
     const toggleMealSelection = (meal) => {
         setSelectedMeals((prev) =>
             prev.some((m) => m.id === meal.id)
-                ? prev.filter((m) => m.id !== meal.id) // Remove if already selected
-                : [...prev, meal] // Add if not selected
+                ? prev.filter((m) => m.id !== meal.id)
+                : [...prev, meal]
         );
     };
 
@@ -39,12 +38,11 @@ const Meals = () => {
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setSelectedWeek(""); // Reset selected week
+        setSelectedWeek("");
     };
 
     const saveToWeek = () => {
         if (selectedMeals.length > 0 && selectedWeek) {
-            // Filter out meals that already exist in the selected week
             const newMeals = selectedMeals.filter(
                 (meal) => !weeks[selectedWeek].some((existingMeal) => existingMeal.id === meal.id)
             );
@@ -60,8 +58,8 @@ const Meals = () => {
             };
 
             setWeeks(updatedWeeks);
-            localStorage.setItem("weeks", JSON.stringify(updatedWeeks)); // Save to local storage
-            setSelectedMeals([]); // Clear selected meals after adding
+            localStorage.setItem("weeks", JSON.stringify(updatedWeeks));
+            setSelectedMeals([]);
             closeModal();
         }
     };
@@ -96,20 +94,16 @@ const Meals = () => {
                 </Box>
             </div>
 
-            {/* Render WeekTabs */}
             <div className="d-flex flex-column">
                 <div className="week-tabs">
                     <WeekTabs activeWeek={activeWeek} onSelectWeek={setActiveWeek} />
                 </div>
-                {/* {selectedMeals.length > 0 && ( */}
                 <div className="add-to-week-btn">
                     <button onClick={openModal} disabled={selectedMeals.length === 0}>Add to Week</button>
                 </div>
-                {/* )} */}
             </div>
 
 
-            {/* Meal List */}
             <div className="gredient">
                 <div className="meal-list">
                     {activeWeek === "all"
@@ -155,7 +149,6 @@ const Meals = () => {
                 </DialogActions>
             </Dialog>
 
-            {/* Add to Week Button */}
 
         </>
     );
